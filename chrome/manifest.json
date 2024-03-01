@@ -31,7 +31,7 @@
   "web_accessible_resources": [
     {
       "resources": ["scripts/constants.js"],
-      "matches": ["http://*/*", "https://*/*"]
+      "matches": ["https://*/*", "http://*/*"]
     }
   ],
   "default_locale": "de",
