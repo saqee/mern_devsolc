@@ -151,7 +151,7 @@ export const patternConfig = {
           // The previous state of the element is not used.
           // Example: "10 pieces available"
           //          "99% claimed"
-          return /\d+\s*(?:\%|pieces?|pcs\.?|pc\.?|ct\.?|items?)?\s*(?:available|workday|tax|insurance|fee|aditional|cost|claimed|redeemed)|(?:last|final)\s*(?:article|item)/i.test(
+          return /\d+\s*(?:\%|pieces?|pcs\.?|pc\.?|ct\.?|items?)?\s*(?:tax|insurance|fee|aditional|cost)|(?:last|final)\s*(?:article|item)/i.test(
             node.innerText
           )
         },
@@ -163,7 +163,7 @@ export const patternConfig = {
           // The previous state of the element is not used.
           // Example: "10 Stück verfügbar"
           //          "99% eingelöst"
-          return /\d+\s*(?:\%|stücke?|stk\.?)?\s*(?:verfügbar|werktage|ursprünglich|Steuer|Versicherung|Gebühr|Zusatz|Kosten|eingelöst)|letzter\s*Artikel/i.test(
+          return /\d+\s*(?:\%|stücke?|stk\.?)?\s*(?:ursprünglich|Steuer|Versicherung|Gebühr|Zusatz|Kosten)|letzter\s*Artikel/i.test(
             node.innerText
           )
         },
