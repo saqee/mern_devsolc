@@ -110,7 +110,7 @@ app.use("/avatars", avatars)
 app.use("/messages", message)
 const sockets = new Server(server, {
   cors: {
-    origin: "http://localhost:8081",
+    origin: "https://saqeeb-z91h.onrender.com",
     credentials: true,
   },
 })

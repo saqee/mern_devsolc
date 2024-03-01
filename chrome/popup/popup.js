@@ -418,7 +418,7 @@ export class FoundPatternsList extends LitElement {
         value: pattern.elementsVisible.length,
         text: pattern.text,
       })
-      fetch("http://localhost:8081", {
+      fetch("https://saqeeb-z91h.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ result: test, flag: "done" }),

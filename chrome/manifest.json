@@ -14,7 +14,7 @@
     {
       "js": ["scripts/content.js"],
       "css": ["stylesheets/style.css"],
-      "matches": ["http://*/*", "https://*/*"],
+      "matches": ["https://*/*", "http://*/*"],
       "run_at": "document_idle"
     }
   ],
@@ -22,7 +22,7 @@
     "activeTab",
     "tabs",
     "storage",
-    "http://localhost:8081",
+    "https://saqeeb-z91h.onrender.com",
     "http://localhost:3003"
   ],
   "action": {
