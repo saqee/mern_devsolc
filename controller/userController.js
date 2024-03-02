@@ -3,7 +3,10 @@ import Jwt from "jsonwebtoken"
 import bcrypt from "bcryptjs"
 import userRequestModel from "../model/userSubmitRequest.js"
 import userFeedbackModel from "../model/userFeedback.js"
-
+import multer from "multer"
+import { uuid } from "uuidv4"
+import path from "path"
+import imageModel from "../model/imageModel.js"
 export const userRegisterCtr = async (req, res) => {
   try {
     const existingEmail = await userModel.findOne({ email: req.body.email })
@@ -334,4 +337,39 @@ export const getSingleExpert = async (req, res) => {
   } catch (e) {
     res.send(e.message)
   }
+}
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./uploads")
+  },
+  filename: function (req, file, cb) {
+    cb(null, uuid() + "-" + Date.now() + path.extname(file.originalname))
+  },
+})
+
+const fileFilter = (req, file, cb) => {
+  const allowedExtensions = [".png", ".jpg", ".jpeg"]
+  const fileExtension = path.extname(file.originalname)
+  const isValidFileExtension = allowedExtensions.includes(fileExtension)
+
+  if (isValidFileExtension) {
+    cb(null, true)
+  } else {
+    cb(new Error("File type"))
+  }
+}
+
+export const upload = multer({
+  storage,
+  fileFilter,
+})
+
+export const getImage = async (req, res) => {
+  const data = await imageModel.find()
+  return res.json({
+    success: true,
+    data: data,
+    message: "success",
+  })
 }
