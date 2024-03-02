@@ -341,7 +341,7 @@ export const getSingleExpert = async (req, res) => {
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./uploads")
+    cb(null, "../frontend/public/uploads")
   },
   filename: function (req, file, cb) {
     cb(null, uuid() + "-" + Date.now() + path.extname(file.originalname))
